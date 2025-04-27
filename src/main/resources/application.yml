@@ -1,0 +1,35 @@
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    name: project
+  
+    
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=learning;encrypt=true;trustServerCertificate=true
+    username: SA
+    password: 123
+
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    database: SQL_SERVER
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      # ddl-auto: create
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        default_schema: dbo
+        id.new_generator_mappings: true
+        cache.use_second_level_cache: false
+        cache.use_query_cache: false
+        generate_statistics: false
+        cache.region.factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+        cache.hazelcast.instance_name: hazelcast
+        cache.use_minimal_puts: true
+        cache.hazelcast.use_lite_member: true
+      org.hibernate.envers.store_data_at_delete: true
